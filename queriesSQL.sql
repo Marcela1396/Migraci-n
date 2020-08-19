@@ -6,26 +6,26 @@
 -- Con base en la implementación de la base de datos para el Hotel, generar los scripts SQL 
 -- necesarios para  resolver las siguientes consultas:
 
--- # ========================================================================================== #-- 1) Obtener un listado de los empleados del hotel, con todos sus datos.
+-- # ========================================================================================== #-- 1) Obtener un listado de los empleados del hotel, con todos sus datos
 -- Opcion 1
 SELECT * FROM empleado;
 -- Opcion 2
 SELECT numreg, nombre, incorporacion, sueldo, cods FROM empleado;
 
--- # ========================================================================================== #-- 2) Obtener el nombre del jefe del servicio de "Restaurante".
+-- # ========================================================================================== #-- 2) Obtener el nombre del jefe del servicio de "Restaurante"
 SELECT nombre, descripcion from servicio join empleado on servicio.numreg = empleado.NumReg 
 where descripcion like '%estauran%';
 
--- # ========================================================================================== #-- 3) Obtener el nombre del jefe de "Jorge Alonso Alonso".
+-- # ========================================================================================== #-- 3) Obtener el nombre del jefe de "Jorge Alonso Alonso"
 select nombre from servicio join empleado on servicio.numreg = empleado.NumReg 
 where empleado.cods = (select cods from empleado where nombre like '%orge%');
 
 -- # ========================================================================================== #-- 4) Obtener un listado de los empleados y los servicios a los que están asignados, 
--- exclusivamente para aquellos que tengan algún servicio asignado.
+-- exclusivamente para aquellos que tengan algún servicio asignado
 select nombre, descripcion from empleado join servicio on empleado.NumReg = servicio.numreg
 
 -- # ========================================================================================== #-- 5) Obtener el número de habitación, tipo y precio de las habitaciones que estén ocupadas en 
--- la actualidad (no tienen fecha de salida).
+-- la actualidad (no tienen fecha de salida)
 select habitacion.numero, habitacion.tipo, precio.precio 
 from precio join habitacion on precio.tipo = habitacion.tipo
 join factura on habitacion.numero = factura.numero 
