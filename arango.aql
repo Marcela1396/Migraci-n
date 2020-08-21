@@ -1,0 +1,61 @@
+// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-
+// PROCESO DE MIGRACIÒN DE UNA BASE DE DATOS IMPLEMENTADA EN UN SISTEMA SQL A UN NOSQL
+// Presentado por: Sandra Marcela Guerrero Calvache
+// Sistemas Avanzados de Bases de Datos
+// ----------------------------------------------------------------------------------
+
+// #----------------------- COMANDOS BASICOS EN ARANGODB -------------------------- #
+
+// Creación de una base de datos en ArangoDB
+db._createDatabase("academica", {}, [{ username: "root", passwd: "", active: true}])
+
+// Eliminar una base de datos
+db._dropDatabase("academica")
+
+// Listar las bases de datos existentes
+db._databases()
+
+// Seleccionar una base de datos para trabajar con ella
+db._useDatabase("academica")
+
+// Creación de una colección en la base de datos seleccionada
+db._create("estudiante");
+
+// Creación de una colección con llave primaria autoincremental
+db._create("users",{ keyOptions: { type: "autoincrement", offset: 10, increment: 5 } });
+
+// Eliminar una colección : Propiedad de las colecciones
+// Eliminar una colección, sus indices y datos
+// Opción 1a : 
+db.estudiante.drop();
+
+// Opcion 1b
+col = db.estudiante;
+col.drop();
+
+// Opcion 2: Eliminar colecciones y sus documentos : Propiedad de la BD
+db._drop("estudiante");
+
+// Listar las propiedades de una colección
+db.estudiante.properties();
+
+// Renombrar una colección
+db.estudiante.rename("estudiantes");
+db._collections()
+// Obtener una colección por su nombre
+db._collection("estudiantes");
+
+//  Obtener una colección por su id
+db._collection("141000")
+
+// Para ambos casos retorna el id de la colección, el nombre, y el tipo
+// [ArangoCollection 141000, "estudiantes" (type document, status loaded)]
+
+// Listar las colecciones existentes en una base de datos
+db._collections()
+
+// Mencionar la cantidad de documentos que tiene una coleccion
+db.estudiante.count()
+
+// Script para la creación del esquema NoSQL en ArangoDB
+

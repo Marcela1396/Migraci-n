@@ -1,7 +1,12 @@
--- # ========================================================================================== # 
--- # SANDRA MARCELA GUERRERO CALVACHE
--- # UNIVERSIDAD DE NARIÑO
--- # ======== CONSULTAS EJERCICIO PRÁCTICO EN UN MOTOR SQL : PosgreSQL ======== #
+-- #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-
+-- PROCESO DE MIGRACIÒN DE UNA BASE DE DATOS IMPLEMENTADA EN UN SISTEMA SQL A UN NOSQL
+-- Presentado por: Sandra Marcela Guerrero Calvache
+-- Sistemas Avanzados de Bases de Datos
+-------------------------------------------------------------------------------------
+-- Sistemas de estudio: PostgreSQL y ArangoDB
+-- #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-
+
+-- # ============== CONSULTAS EJERCICIO PRÁCTICO EN UN MOTOR SQL : PosgreSQL ================== #
 
 -- Con base en la implementación de la base de datos para el Hotel, generar los scripts SQL 
 -- necesarios para  resolver las siguientes consultas:
