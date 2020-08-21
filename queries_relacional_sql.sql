@@ -9,21 +9,21 @@
 -- # ============== CONSULTAS EJERCICIO PRÁCTICO EN UN MOTOR SQL : PosgreSQL ================== #
 
 -- Con base en la implementación de la base de datos para el Hotel, generar los scripts SQL 
--- necesarios para  resolver las siguientes consultas:
+-- necesarios para  resolver las siguientes consultas
 
 -- # ========================================================================================== #-- 1) Obtener un listado de los empleados del hotel, con todos sus datos
 -- Opcion 1
 SELECT * FROM empleado;
 -- Opcion 2
-SELECT numreg, nombre, incorporacion, sueldo, cods FROM empleado;
+SELECT numreg, nombre, incorporacion, sueldo, cods FROM empleado
 
 -- # ========================================================================================== #-- 2) Obtener el nombre del jefe del servicio de "Restaurante"
 SELECT nombre, descripcion from servicio join empleado on servicio.numreg = empleado.NumReg 
-where descripcion like '%estauran%';
+where descripcion like '%estauran%'
 
 -- # ========================================================================================== #-- 3) Obtener el nombre del jefe de "Jorge Alonso Alonso"
 select nombre from servicio join empleado on servicio.numreg = empleado.NumReg 
-where empleado.cods = (select cods from empleado where nombre like '%orge%');
+where empleado.cods = (select cods from empleado where nombre like '%orge%')
 
 -- # ========================================================================================== #-- 4) Obtener un listado de los empleados y los servicios a los que están asignados, 
 -- exclusivamente para aquellos que tengan algún servicio asignado
@@ -34,7 +34,7 @@ select nombre, descripcion from empleado join servicio on empleado.NumReg = serv
 select habitacion.numero, habitacion.tipo, precio.precio 
 from precio join habitacion on precio.tipo = habitacion.tipo
 join factura on habitacion.numero = factura.numero 
-where factura.salida is null;
+where factura.salida is null
 
 -- # ========================================================================================== #-- 6) Obtener el nombre y apellidos del cliente o clientes que más veces hayan estado en el 
 -- hotel (no número total de noches, sino estancias diferentes: una persona que ha estado tres 
